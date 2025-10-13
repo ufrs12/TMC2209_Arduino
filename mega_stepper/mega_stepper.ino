@@ -44,6 +44,7 @@ void loop() {
   
   holdingRegisters[0] = stepper.currentPosition() / steps_per_mm;
   holdingRegisters[1] = stepper.distanceToGo() / steps_per_mm;
+  holdingRegisters[3] = driver.rms_current();
 
   if (holdingRegisters[2] != stepper.targetPosition() / steps_per_mm) {
     stepper.moveTo(holdingRegisters[2] * steps_per_mm); // Move 100mm
